@@ -10,4 +10,13 @@ public class HelloWordJava {
         return "HelloWord ffff!!!";
     }
 
+    @GetMapping("/user")
+    public String userPage() {
+        return "HelloWord user!!!";
+    }
+
+    @GetMapping("/admin")
+    public String adminPage() {
+        return "HelloWord admin!!!";
+    }
 }
