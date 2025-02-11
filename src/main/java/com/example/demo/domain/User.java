@@ -8,6 +8,24 @@ public class User {
     private String address;
     private String phone;
 
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", email=" + email + ", password=" + password + ", fullName=" + fullName
+                + ", address=" + address + ", phone=" + phone + "]";
+    }
+
+    public User() {
+    }
+
+    public User(long id, String email, String password, String fullName, String address, String phone) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.fullName = fullName;
+        this.address = address;
+        this.phone = phone;
+    }
+
     public long getId() {
         return id;
     }
