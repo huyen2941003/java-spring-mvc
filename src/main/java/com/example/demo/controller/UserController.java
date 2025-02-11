@@ -1,9 +1,8 @@
 package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.example.demo.service.UserService;
 
 @Controller
@@ -16,23 +15,15 @@ public class UserController {
     }
 
     @RequestMapping("/")
-    public String getHomePage() {
+    public String getHomePage(Model model) {
+        String test = this.userService.handleHello();
+        model.addAttribute("test", test);
         return "hello";
     }
+
+    @RequestMapping("/admin/user")
+    public String getUserPage(Model model) {
+        return "admin/user/create";
+    }
+
 }
-/*
- * @RestController
- * public class UserController {
- * 
- * private UserService userService;
- * 
- * public UserController(UserService userService) {
- * this.userService = userService;
- * }
- * 
- * @RequestMapping("")
- * public String getHomePage() {
- * return this.userService.getHomePage();
- * }
- * }
- */
