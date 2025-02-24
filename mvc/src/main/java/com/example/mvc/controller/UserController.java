@@ -14,11 +14,9 @@ import com.example.mvc.service.UserService;
 public class UserController {
 
     private final UserService userService;
-    private final UserRepository userRepository;
 
-    public UserController(UserService userService, UserRepository userRepository) {
+    public UserController(UserService userService) {
         this.userService = userService;
-        this.userRepository = userRepository;
     }
 
     @RequestMapping("/")
@@ -36,8 +34,13 @@ public class UserController {
 
     @RequestMapping(value = "/admin/user/create1", method = RequestMethod.POST)
     public String createUserPage(Model model, @ModelAttribute("newUser") User createUser) {
-        System.out.println("run here" + createUser);
-        this.userRepository.save(createUser);
+        this.userService.handleSaveUser(createUser);
+        return "hello";
+    }
+
+    @RequestMapping(value = "/admin/user/create1", method = RequestMethod.POST)
+    public String createUserPagee(Model model, @ModelAttribute("newUser") User createUser) {
+        this.userService.handleSaveUser(createUser);
         return "hello";
     }
 }
