@@ -1,5 +1,7 @@
 package com.example.mvc.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,9 +16,12 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    @RequestMapping("/")
-    public String handleHello() {
-        return "Hello getHomePage user";
+    public List<User> getAllUser() {
+        return this.userRepository.findAll();
+    }
+
+    public List<User> geTAllUsersbyEmail(String email) {
+        return this.userRepository.findByEmail(email);
     }
 
     public User handleSaveUser(User user) {
