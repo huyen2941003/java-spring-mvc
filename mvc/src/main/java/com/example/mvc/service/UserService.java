@@ -3,8 +3,6 @@ package com.example.mvc.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.example.mvc.domain.User;
 import com.example.mvc.repository.UserRepository;
 
@@ -20,7 +18,11 @@ public class UserService {
         return this.userRepository.findAll();
     }
 
-    public List<User> geTAllUsersbyEmail(String email) {
+    public User getUserById(long id) {
+        return this.userRepository.findById(id).orElse(null);
+    }
+
+    public List<User> getAllUsersByEmail(String email) {
         return this.userRepository.findByEmail(email);
     }
 
