@@ -25,22 +25,29 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Phone</th>
+                                        <th scope="col">Full Name</th>
+                                        <th scope="col">Address</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>
-                                            <button class="btn btn-success">View</button>
-                                            <button class="btn btn-warning">Update</button>
-                                            <button class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
+                                    <c:forEach var="user" items="${users}">
+                                        <tr>
+                                            <th>${user.id}</th>
+                                            <th>${user.email}</th>
+                                            <th>${user.phone}</th>
+                                            <th>${user.fullName}</th>
+                                            <th>${user.address}</th>
+                                            <th>
+                                                </td>
+                                                <button class="btn btn-success">View</button>
+                                                <button class="btn btn-warning">Update</button>
+                                                <button class="btn btn-danger">Delete</button>
+                                                </td>
+                                            </th>
+                                        </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </div>
