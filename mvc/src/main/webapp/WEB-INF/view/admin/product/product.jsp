@@ -87,7 +87,9 @@
                                                     </c:forEach>
                                                 </tbody>
                                             </table>
+                                            <a href="" class="btn btn-primary">Create</a>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>

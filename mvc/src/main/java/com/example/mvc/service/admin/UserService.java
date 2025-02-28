@@ -1,10 +1,10 @@
-package com.example.mvc.service;
+package com.example.mvc.service.admin;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 import com.example.mvc.domain.User;
-import com.example.mvc.repository.UserRepository;
+import com.example.mvc.repository.admin.UserRepository;
 
 @Service
 public class UserService {

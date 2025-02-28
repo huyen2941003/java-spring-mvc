@@ -26,7 +26,7 @@
                     <div id="layoutSidenav_content">
                         <main>
                             <div class="container-fluid px-4">
-                                <h1 class="mt-4">Product</h1>
+                                <h1 class="mt-4">User</h1>
                                 <ol class="breadcrumb mb-4">
                                     <li class="breadcrumb-item active"><a href="/admin">Dashboard</a> /
                                         User
@@ -50,6 +50,7 @@
                                                         <th scope="col">Phone</th>
                                                         <th scope="col">Address</th>
                                                         <th scope="col">Avatar</th>
+                                                        <th scope="col">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tfoot>
@@ -60,6 +61,7 @@
                                                         <th scope="col">Phone</th>
                                                         <th scope="col">Address</th>
                                                         <th scope="col">Avatar</th>
+                                                        <th scope="col">Action</th>
                                                     </tr>
                                                 </tfoot>
                                                 <tbody>
@@ -70,15 +72,20 @@
                                                             <td>${user.fullName}</td>
                                                             <td>${user.phone}</td>
                                                             <td>${user.address}</td>
+                                                            <td>${user.avatar}</td>
                                                             <td>
-                                                                <a href="" class="btn btn-success">View</a>
-                                                                <a href="" class="btn btn-warning">Update</a>
-                                                                <a href="" class="btn btn-danger">Delete</a>
+                                                                <a href="/admin/user/${user.id}"
+                                                                    class="btn btn-success">View</a>
+                                                                <a href="/admin/user/update/${user.id}"
+                                                                    class="btn btn-warning">Update</a>
+                                                                <a href="/admin/user/delete/${user.id}"
+                                                                    class="btn btn-danger">Delete</a>
                                                             </td>
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>
                                             </table>
+                                            <a href="/admin/user/create" class="btn btn-primary">Create</a>
                                         </div>
                                     </div>
                                 </div>
