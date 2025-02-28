@@ -1,4 +1,4 @@
-package com.example.mvc.controller;
+package com.example.mvc.controller.admin;
 
 import java.util.List;
 
@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.mvc.domain.User;
-import com.example.mvc.service.UserService;
+import com.example.mvc.service.admin.UserService;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -35,7 +36,7 @@ public class UserController {
     public String getUserListPage(Model model) {
         List<User> listUsers = this.userService.getAllUser();
         model.addAttribute("users", listUsers);
-        return "admin/user/list";
+        return "admin/user/user";
     }
 
     @RequestMapping("/admin/user/create")
