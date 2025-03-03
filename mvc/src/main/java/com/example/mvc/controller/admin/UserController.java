@@ -25,13 +25,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping("/")
-    public String getHomePageString(Model model) {
-        List<User> getListUser = this.userService.getAllUsersByEmail("huyenruoi2904@gmail.com");
-        System.out.println(getListUser);
-        return "hello";
-    }
-
+    // get list
     @RequestMapping("/admin/user")
     public String getUserListPage(Model model) {
         List<User> listUsers = this.userService.getAllUser();
@@ -39,6 +33,7 @@ public class UserController {
         return "admin/user/user";
     }
 
+    // create
     @RequestMapping("/admin/user/create")
     public String getUserPage(Model model) {
         model.addAttribute("newUser", new User());
@@ -51,6 +46,7 @@ public class UserController {
         return "redirect:/admin/user";
     }
 
+    // detail
     @RequestMapping("/admin/user/{id}")
     public String getUserDetailPage(Model model, @PathVariable long id) {
         User user = this.userService.getUserById(id);
@@ -59,6 +55,7 @@ public class UserController {
         return "admin/user/detail";
     }
 
+    // update
     @RequestMapping("/admin/user/update/{id}")
     public String getUserUpdatePage(Model model, @PathVariable long id) {
         User user = this.userService.getUserById(id);
@@ -79,6 +76,7 @@ public class UserController {
         return "redirect:/admin/user";
     }
 
+    // delete
     @GetMapping("/admin/user/delete/{id}")
     public String getUserDeletePage(Model model, @PathVariable long id) {
         User user = this.userService.getUserById(id);

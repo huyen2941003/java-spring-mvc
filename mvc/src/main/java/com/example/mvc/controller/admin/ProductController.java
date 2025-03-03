@@ -24,4 +24,16 @@ public class ProductController {
         model.addAttribute("product", products);
         return "/admin/product/product";
     }
+
+    // create
+    @GetMapping("/admin/product/create")
+    public String createProduct(Model model) {
+        return "/admin/product/create";
+    }
+
+    // update
+
+    // delete
+
+    // detail
 }
