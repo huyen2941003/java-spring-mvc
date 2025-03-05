@@ -9,6 +9,8 @@ import com.example.mvc.domain.Product;
 import com.example.mvc.service.admin.ProductService;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 public class ProductController {
@@ -27,8 +29,22 @@ public class ProductController {
 
     // create
     @GetMapping("/admin/product/create")
-    public String createProduct(Model model) {
+    public String getCreateProduct(Model model) {
+        model.addAttribute("product", new Product());
         return "/admin/product/create";
+    }
+
+    @PostMapping("/admin/product/create")
+    public String createProduct(Model model, @ModelAttribute("product") Product createProduct) {
+        this.productService.saveProduct(createProduct);
+        return "redirect:/admin/product";
+    }
+
+    @PostMapping("path")
+    public String postMethodName(@RequestBody String entity) {
+        // TODO: process POST request
+
+        return entity;
     }
 
     // update
